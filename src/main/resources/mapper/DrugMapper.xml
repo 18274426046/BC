@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.medicine.mapper.DrugMapper">
+    <insert id="insertDrug" parameterType="com.medicine.entity.DrugDTO">
+    insert into drug(`name`,price,is_shelf,img,classification)
+    values(#{name},#{price},#{isShelf},#{img},#{classification})
+    </insert>
+
+    <select id="selectDrug" parameterType="com.medicine.entity.DrugQuery" resultType="com.medicine.entity.DrugDTO">
+        select `name`,price,is_shelf as isShelf ,img,classification,id from drug where
+    </select>
+</mapper>

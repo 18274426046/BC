@@ -2,11 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medicine.mapper.DrugMapper">
     <insert id="insertDrug" parameterType="com.medicine.entity.DrugDTO">
-    insert into drug(`name`,price,is_shelf,img,classification)
-    values(#{name},#{price},#{isShelf},#{img},#{classification})
+    insert into drug(`name`,price,is_shelf,img,classification,create_time)
+    values(#{name},#{price},#{isShelf},#{img},#{classification},#{createTime})
     </insert>
 
     <select id="selectDrug" parameterType="com.medicine.entity.DrugQuery" resultType="com.medicine.entity.DrugDTO">
-        select `name`,price,is_shelf as isShelf ,img,classification,id from drug where
+        select `name`,price,is_shelf as isShelf ,img,classification,id from drug where 1=1
+        <if test="name!=null and name!=''">
+            and name like concat('%',#{name},'%')
+        </if>
+        <if test="classification!=null">
+            and classification=#{classification}
+        </if>
+        order by create_time
     </select>
+
+    <update id="updateDrug" parameterType="com.medicine.entity.DrugDTO">
+        update drug set `name`=#{name},price=#{price},is_shelf=#{isShelf},img=#{img},classification=#{classification}
+        where id=#{id}
+    </update>
 </mapper>

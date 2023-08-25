@@ -10,7 +10,7 @@
 
 
     <!-- 以文件形式输出 INFO 级别及以上的日志 -->
-    <appender name="FILE-INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="FILE-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_PATH}/info-${FILE_NAME_PATTERN}</fileNamePattern>
@@ -28,6 +28,6 @@
 
     <!-- 配置日志级别 -->
     <root level="INFO">
-        <appender-ref ref="FILE-INFO"/>
+        <appender-ref ref="FILE-LOG"/>
     </root>
 </configuration>

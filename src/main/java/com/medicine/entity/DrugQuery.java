@@ -8,7 +8,7 @@ import lombok.Setter;
 public class DrugQuery {
     private String name;
 
-    private Integer classification;
+    private String classification;
 
     private Integer pageNum;
 

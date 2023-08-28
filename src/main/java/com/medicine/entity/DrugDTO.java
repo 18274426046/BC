@@ -19,7 +19,7 @@ public class DrugDTO {
 
     private String img;
 
-    private Integer classification;
+    private String classification;
 
     private Date createTime;
 }

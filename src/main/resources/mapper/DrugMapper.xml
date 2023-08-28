@@ -11,7 +11,7 @@
         <if test="name!=null and name!=''">
             and name like concat('%',#{name},'%')
         </if>
-        <if test="classification!=null">
+        <if test="classification!=null and classification!=''">
             and classification=#{classification}
         </if>
         order by create_time
